@@ -2,12 +2,12 @@ import argparse
 
 
 def parse_nfm_args():
-    parser = argparse.ArgumentParser(description="Run NFM.")
+    parser = argparse.ArgumentParser(description="Run FM.")
 
     parser.add_argument('--seed', type=int, default=2019,
                         help='Random seed.')
 
-    parser.add_argument('--model_type', nargs='?', default='nfm',
+    parser.add_argument('--model_type', nargs='?', default='fm',
                         help='Specify a model type from {fm, nfm}.')
 
     parser.add_argument('--data_name', nargs='?', default='train-running-data',
@@ -58,7 +58,7 @@ def parse_nfm_args():
 
     args = parser.parse_args()
 
-    save_dir = 'trained_model/NFM/{}/{}_embed-dim{}_{}_lr{}_pretrain{}_user-info{}/'.format(
+    save_dir = 'trained_model/FM/{}/{}_embed-dim{}_{}_lr{}_pretrain{}_user-info{}/'.format(
         args.data_name, args.model_type, args.embed_dim,
         '-'.join([str(i) for i in eval(args.hidden_dim_list)]), args.lr, args.use_pretrain, 
         args.use_user_info)
